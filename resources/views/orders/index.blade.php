@@ -10,11 +10,11 @@
                     @csrf
                     <div class="form-group">
                         <label for="date_open">Начало периода:</label>
-                        <input type="datetime-local" class="form-control" name="start">
+                        <input type="date" class="form-control" name="start">
                     </div>
                     <div class="form-group">
                         <label for="date_closed">Конец периода:</label>
-                        <input type="datetime-local" class="form-control" name="end">
+                        <input type="date" class="form-control" name="end">
                     </div>
                     <button type="submit" class="btn btn-success m-1">Сформировать</button>
                 </form>
