@@ -69,5 +69,37 @@ class ObjectController extends Controller
         return redirect()->route('objects')->with('success','Данные объекта успешно обновлены!');
     }
 
+    public function newObject() {
+
+        $clients = Client::all();
+
+        return view('objects.new')->with([
+            'clients' => $clients,
+        ]);
+    }
+
+    public function create(Request $request) {
+
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'client_id' => 'required',
+        ]);
+
+        $obj = new ObjectItem();
+        $obj->name = $request->name;
+        $obj->address = $request->address;
+        $obj->client_id = $request->client_id;
+
+        $obj->save();
+
+        return redirect()->route('objects')->with('success','Новый объект успешно добавлен!');
+    }
+
+    public function delete(Request $request, $id) {
+        ObjectItem::destroy($id);
+        return redirect()->route('objects')->with('success','Объект успешно удален!');
+    }
+
 
 }

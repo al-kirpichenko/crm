@@ -78,4 +78,9 @@ class ClientController extends Controller
         return redirect()->route('clients')->with('success','Новый клиент успешно создан!');
     }
 
+    public function newClient() {
+
+        return view('clients.new');
+    }
+
 }
