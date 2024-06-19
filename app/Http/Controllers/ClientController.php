@@ -56,13 +56,10 @@ class ClientController extends Controller
         return redirect()->route('clients')->with('success','Данные клиента успешно обновлены!');
     }
 
-    public function delete(Request $request) {
 
-    }
-
-    public function newClient(Request $request) {
-
-        return view('clients.new');
+    public function delete(Request $request, $id) {
+        Client::destroy($id);
+        return redirect()->route('clients')->with('success','Клиент успешно удален!');
     }
 
     public function create(Request $request) {
