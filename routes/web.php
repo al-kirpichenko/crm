@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ObjectController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,5 @@ Route::post('/object/update', [ObjectController::class, 'update'])->name('object
 Route::get('/object/new', [ObjectController::class, 'newObject'])->name('object.new')->middleware('is_operator');
 Route::post('/object/create', [ObjectController::class, 'create'])->name('object.create')->middleware('is_operator');
 Route::get('/object/delete/{id}', [ObjectController::class, 'delete'])->name('object.delete')->middleware('is_operator');
+Route::get('/orders', [OrderController::class, 'index'])->name('order')->middleware('is_admin');
+Route::post('/order/create', [OrderController::class, 'create'])->name('order.create')->middleware('is_admin');

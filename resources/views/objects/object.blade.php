@@ -36,6 +36,7 @@
                             </select>
 
                         <button type="submit" class="btn btn-success m-1">Сохранить</button>
+                        </div>
                     </form>
                 </div>
             </div>

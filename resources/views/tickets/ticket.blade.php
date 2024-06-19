@@ -61,7 +61,7 @@
                             <input type="datetime-local" class="form-control" name="date_closed"
                                    value="{{ $ticket['date_closed'] }}">
                         </div>
-                        <input type="submit" class="btn btn-primary m-1">
+                        <button type="submit" class="btn btn-success m-1">Сохранить</button>
                     </form>
                 </div>
             </div>
