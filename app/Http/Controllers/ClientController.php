@@ -56,4 +56,29 @@ class ClientController extends Controller
         return redirect()->route('clients')->with('success','Данные клиента успешно обновлены!');
     }
 
+    public function delete(Request $request) {
+
+    }
+
+    public function newClient(Request $request) {
+
+        return view('clients.new');
+    }
+
+    public function create(Request $request) {
+
+        $request->validate([
+            'address' => 'required',
+            'name' => 'required',
+        ]);
+
+        $user = new Client();
+        $user->name = $request->name;
+        $user->address = $request->address;
+        $user->save();
+
+
+        return redirect()->route('clients')->with('success','Новый клиент успешно создан!');
+    }
+
 }
