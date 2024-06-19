@@ -11,4 +11,9 @@ class ObjectItem extends Model
 
     protected $table = 'objects';
     protected $fillable = ['name', 'address','client_id'];
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

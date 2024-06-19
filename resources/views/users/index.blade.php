@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div><a class="btn btn-success" href="/user/new" role="button">Создать пользователя</a></div>
+        <h2>Пользователи</h2>
+        <div><a class="btn btn-success" href="/user/new" role="button">Добавить пользователя</a></div>
         <table class="table">
             <thead>
             <tr>

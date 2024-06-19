@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h2>Заявки</h2>
         <div><a class="btn btn-success" href="/ticket/new" role="button">Создать заявку</a></div>
                 <table class="table">
                     <thead>

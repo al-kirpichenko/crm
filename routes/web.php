@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -44,3 +45,4 @@ Route::post('/client/update', [ClientController::class, 'update'])->name('client
 Route::get('/client/new', [ClientController::class, 'newClient'])->name('client.new')->middleware('is_operator');
 Route::post('/client/create', [ClientController::class, 'create'])->name('client.create')->middleware('is_operator');
 Route::get('/client/delete/{id}', [ClientController::class, 'delete'])->name('client.delete')->middleware('is_admin');
+Route::get('/objects', [ObjectController::class, 'index'])->name('objects')->middleware('is_operator');

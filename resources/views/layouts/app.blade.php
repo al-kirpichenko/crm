@@ -30,7 +30,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link" href="/tickets">Заявки</a>
                         <a class="nav-link" href="/clients">Клиенты</a>
-                        <a class="nav-link" href="/objectsts">Объекты</a>
+                        <a class="nav-link" href="/objects">Объекты</a>
                         @if(auth()->user()->role_id == 1)
                             <a class="nav-link" href="/users" role="button">Пользователи</a>
                             <a class="nav-link" href="/orders" role="button">Отчеты</a>
