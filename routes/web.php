@@ -34,3 +34,5 @@ Route::post('/ticket/create', [TicketController::class, 'create'])->name('ticket
 Route::get('/users', [AdminController::class, 'users'])->name('users')->middleware('is_admin');
 Route::get('/user/new', [AdminController::class, 'newUser'])->name('user.new');
 Route::post('/user/create', [AdminController::class, 'createUser'])->name('user.create')->middleware('is_admin');
+Route::get('/user/show/{id}', [AdminController::class, 'user'])->name('user')->middleware('is_admin');
+Route::post('/user/update', [AdminController::class, 'updateUser'])->name('user.update')->middleware('is_operator');
