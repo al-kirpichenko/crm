@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdmin
+class IsOperator
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->role_id == 1){
+        if(auth()->user()->role_id > 2){
             return $next($request);
         }
 
-        return redirect('home')->with('error',"У вас должны быть права администратора!");
+        return redirect('home')->with('error',"У вас должны быть права Оператора!");
     }
 }

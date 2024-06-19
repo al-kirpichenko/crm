@@ -24,7 +24,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route:: get ('/admin', [AdminController:: class , 'admin'])->name('admin')->middleware('is_admin');
-Route::get('/tickets', [TicketController::class, 'index'])->name('index');
+Route::get ('/admin', [AdminController:: class , 'admin'])->name('admin')->middleware('is_admin');
+Route::get('/tickets', [TicketController::class, 'index'])->name('tickets');
 Route::get('/ticket/show/{id}', [TicketController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/delete/{id}', [TicketController::class, 'delete'])->name('ticket.delete')->middleware('is_admin');
 Route::post('/ticket/update', [TicketController::class, 'update'])->name('ticket.update');

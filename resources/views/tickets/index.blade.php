@@ -40,8 +40,8 @@
                         <td>{{$ticket['date_closed']}}</td>
                         <td>{{$ticket['worker']}}</td>
                         <td class="text-center">
-                            <a class="btn btn-primary" href="/ticket/show/{{$ticket['id']}}" role="button">Редактировать</a>
-                            <a class="btn btn-danger" href="/tickets/delete/{{$ticket['id']}}" role="button">Удалить</a>
+                            <a class="btn btn-primary" href="/ticket/show/{{$ticket['id']}}" role="button">Изменить</a>
+                            <a class="btn btn-danger" href="/ticket/delete/{{$ticket['id']}}" role="button">Удалить</a>
                         </td>
 
                     </tr>

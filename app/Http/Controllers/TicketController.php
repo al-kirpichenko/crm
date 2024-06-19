@@ -67,7 +67,7 @@ class TicketController extends Controller
 
     public function delete(Request $request, $id) {
         Ticket::destroy($id);
-        return response()->json("Заявка успешно удалена", 200);
+        return redirect()->route('tickets')->with('success','Заявка успешно удалена!');
     }
 
     public function update(Request $request) {

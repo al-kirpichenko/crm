@@ -2,20 +2,6 @@
 
 @section('content')
     <div class="container">
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
         @foreach($data as $ticket)
             <div class="card" style="width: 40rem;">
                 <div class="card-body">
@@ -24,7 +10,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="client">Клиент:</label>
-                            <input type="text" class="form-control"  id="client" readonly
+                            <input type="text" class="form-control" id="client" readonly
                                    value="{{ $ticket['client_name'] }}">
                         </div>
                         <div class="form-group">
@@ -41,7 +27,8 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Описание:</label>
-                            <textarea class="form-control" rows="5" name="description">{{$ticket['description']}}</textarea>
+                            <textarea class="form-control" rows="5"
+                                      name="description">{{$ticket['description']}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="status_id">Статус</label>
