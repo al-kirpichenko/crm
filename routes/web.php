@@ -35,4 +35,5 @@ Route::get('/users', [AdminController::class, 'users'])->name('users')->middlewa
 Route::get('/user/new', [AdminController::class, 'newUser'])->name('user.new');
 Route::post('/user/create', [AdminController::class, 'createUser'])->name('user.create')->middleware('is_admin');
 Route::get('/user/show/{id}', [AdminController::class, 'user'])->name('user')->middleware('is_admin');
-Route::post('/user/update', [AdminController::class, 'updateUser'])->name('user.update')->middleware('is_operator');
+Route::post('/user/update', [AdminController::class, 'updateUser'])->name('user.update')->middleware('is_admin');
+Route::get('/user/delete/{id}', [AdminController::class, 'deleteUser'])->name('user.delete')->middleware('is_admin');

@@ -102,4 +102,9 @@ class AdminController extends Controller
 
         return redirect()->route('users')->with('success','Данные пользователя успешно обновлены!');
     }
+
+    public function deleteUser(Request $request, $id) {
+        User::destroy($id);
+        return redirect()->route('users')->with('success','Пользователь успешно удален!');
+    }
 }
