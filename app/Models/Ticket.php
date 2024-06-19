@@ -15,7 +15,8 @@ class Ticket extends Model
         'description',
         'status',
         'date_open',
-        'date_closed'
+        'date_closed',
+        'worker_id',
     ];
 
     public function object()

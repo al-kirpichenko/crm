@@ -26,3 +26,5 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route:: get ('/admin', [AdminController:: class , 'admin'])->name('admin')->middleware('is_admin');
 Route::get('/tickets', [TicketController::class, 'index'])->name('index');
+Route::get('/ticket/show/{id}', [TicketController::class, 'ticket'])->name('ticket');
+Route::post('/ticket/update', [TicketController::class, 'update'])->name('ticket.update');
