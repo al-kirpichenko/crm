@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -29,5 +30,30 @@ class AdminController extends Controller
         });
 
         return view('users.index')->with(['users' => $users]);
+    }
+
+    public function newUser() {
+
+        return view('users.new');
+    }
+
+    public function createUser(Request $request) {
+
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required',
+            'role_id' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role_id = $request->role_id;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+
+        return redirect()->route('users')->with('success','Новый пользователь успешно создан!');
     }
 }
