@@ -46,3 +46,5 @@ Route::get('/client/new', [ClientController::class, 'newClient'])->name('client.
 Route::post('/client/create', [ClientController::class, 'create'])->name('client.create')->middleware('is_operator');
 Route::get('/client/delete/{id}', [ClientController::class, 'delete'])->name('client.delete')->middleware('is_admin');
 Route::get('/objects', [ObjectController::class, 'index'])->name('objects')->middleware('is_operator');
+Route::get('/object/show/{id}', [ObjectController::class, 'object'])->name('object')->middleware('is_operator');
+Route::post('/object/update', [ObjectController::class, 'update'])->name('object.update')->middleware('is_operator');

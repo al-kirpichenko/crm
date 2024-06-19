@@ -7,7 +7,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Имя</th>
+                <th>Наименование</th>
                 <th>Адрес</th>
                 <th>Клиент</th>
                 <th class="text-center">Действия</th>
