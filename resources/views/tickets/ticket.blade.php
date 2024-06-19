@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label for="date_open">Дата открытия:</label>
                             <input type="datetime-local" class="form-control" name="date_open" readonly
-                                   value="{{ $ticket['date_open'] }}">
+                                   value="{{ $ticket['created_at'] }}">
                         </div>
                         <div class="form-group">
                             <label for="date_closed">Дата закрытия:</label>

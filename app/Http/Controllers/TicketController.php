@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\ObjectItem;
 use App\Models\Ticket;
 use App\Models\Worker;
 use Illuminate\Http\Request;
@@ -20,7 +22,7 @@ class TicketController extends Controller
                 'id' => $ticket->id,
                 'object' => $ticket->object->name,
                 'client' => $ticket->client->name,
-                'date_open' => $ticket->date_open,
+                'created_at' => $ticket->date_open,
                 'date_closed' => $ticket->date_closed,
                 'description' => $ticket->description,
                 'status' => $ticket->status->name,
@@ -31,6 +33,20 @@ class TicketController extends Controller
         return view('tickets.index')->with(['tickets' => $tickets]);
     }
 
+    public function newTicket() {
+
+        $workers = Worker::all();
+        $objects = ObjectItem::all();
+        $clients = Client::all();
+
+        return view('tickets.new')->with([
+            'objects' => $objects,
+            'workers' => $workers,
+            'clients' => $clients,
+        ]);
+
+    }
+
 
     public function ticket($id) {
 
@@ -39,7 +55,7 @@ class TicketController extends Controller
                 'id' => $ticket->id,
                 'object' => $ticket->object->name,
                 'client_name' => $ticket->client->name,
-                'date_open' => $ticket->date_open,
+                'created_at' => $ticket->created_at,
                 'date_closed' => $ticket->date_closed,
                 'description' => $ticket->description,
                 'status_name' => $ticket->status->name,
@@ -89,5 +105,23 @@ class TicketController extends Controller
         $ticket->save();
 
         return redirect()->route('ticket', [$ticket->id])->with('success','Заявка успешно обновлена!');
+    }
+
+    public function create(Request $request) {
+
+        $request->validate([
+            'object_id' => 'required',
+            'client_id' => 'required',
+            'description' => 'required',
+        ]);
+
+        $ticket = new Ticket();
+        $ticket->client_id = $request->client_id;
+        $ticket->object_id = $request->object_id;
+        $ticket->description = $request->description;
+        $ticket->worker_id = $request->worker_id;
+        $ticket->save();
+
+        return redirect()->route('tickets')->with('success','Заявка успешно создана!');
     }
 }

@@ -2,20 +2,7 @@
 
 @section('content')
     <div class="container">
-{{--        <div class="row justify-content-center">--}}
-{{--            <div class="col-md-8">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-header">Заявки</div>--}}
-
-{{--                    <div class="card-body">--}}
-{{--                        @if(auth()->user()->role_id == 1)--}}
-{{--                            <a href="{{url('admin/routes')}}">Admin</a>--}}
-{{--                        @else--}}
-{{--                            <div class=”panel-heading”>Normal User</div>--}}
-{{--                        @endif--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
+        <div><a class="btn btn-success" href="/ticket/new" role="button">Создать заявку</a></div>
                 <table class="table">
                     <thead>
                     <tr>
@@ -36,7 +23,7 @@
                         <td>{{$ticket['client']}}</td>
                         <td>{{$ticket['description']}}</td>
                         <td>{{$ticket['status']}}</td>
-                        <td>{{$ticket['date_open']}}</td>
+                        <td>{{$ticket['created_at']}}</td>
                         <td>{{$ticket['date_closed']}}</td>
                         <td>{{$ticket['worker']}}</td>
                         <td class="text-center">
@@ -51,6 +38,4 @@
 
 
             </div>
-{{--        </div>--}}
-{{--    </div>--}}
 @endsection

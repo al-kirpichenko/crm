@@ -28,4 +28,6 @@ Route::get ('/admin', [AdminController:: class , 'admin'])->name('admin')->middl
 Route::get('/tickets', [TicketController::class, 'index'])->name('tickets');
 Route::get('/ticket/show/{id}', [TicketController::class, 'ticket'])->name('ticket');
 Route::get('/ticket/delete/{id}', [TicketController::class, 'delete'])->name('ticket.delete')->middleware('is_admin');
-Route::post('/ticket/update', [TicketController::class, 'update'])->name('ticket.update');
+Route::post('/ticket/update', [TicketController::class, 'update'])->name('ticket.update')->middleware('is_operator');
+Route::get('/ticket/new', [TicketController::class, 'newTicket'])->name('ticket.new');
+Route::post('/ticket/create', [TicketController::class, 'create'])->name('ticket.create')->middleware('is_operator');

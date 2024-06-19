@@ -15,7 +15,7 @@ class IsOperator
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->role_id > 2){
+        if(auth()->user()->role_id < 3){
             return $next($request);
         }
 
