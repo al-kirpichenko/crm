@@ -22,7 +22,7 @@ class TicketController extends Controller
                 'id' => $ticket->id,
                 'object' => $ticket->object->name,
                 'client' => $ticket->client->name,
-                'created_at' => $ticket->date_open,
+                'created_at' => $ticket->created_at,
                 'date_closed' => $ticket->date_closed,
                 'description' => $ticket->description,
                 'status' => $ticket->status->name,

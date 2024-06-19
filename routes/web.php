@@ -31,3 +31,4 @@ Route::get('/ticket/delete/{id}', [TicketController::class, 'delete'])->name('ti
 Route::post('/ticket/update', [TicketController::class, 'update'])->name('ticket.update')->middleware('is_operator');
 Route::get('/ticket/new', [TicketController::class, 'newTicket'])->name('ticket.new');
 Route::post('/ticket/create', [TicketController::class, 'create'])->name('ticket.create')->middleware('is_operator');
+Route::get('/users', [AdminController::class, 'users'])->name('users')->middleware('is_admin');

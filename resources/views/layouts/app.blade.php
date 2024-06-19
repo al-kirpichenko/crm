@@ -31,6 +31,9 @@
                         <a class="nav-link" href="/tickets">Заявки</a>
                         <a class="nav-link" href="/clients">Клиенты</a>
                         <a class="nav-link" href="/objectsts">Объекты</a>
+                        @if(auth()->user()->role_id == 1)
+                            <a class="nav-link" href="/users/index" role="button">Пользователи</a>
+                        @endif
                     </div>
                 </div>
 
