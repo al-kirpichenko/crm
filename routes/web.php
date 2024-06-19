@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
@@ -37,3 +38,4 @@ Route::post('/user/create', [AdminController::class, 'createUser'])->name('user.
 Route::get('/user/show/{id}', [AdminController::class, 'user'])->name('user')->middleware('is_admin');
 Route::post('/user/update', [AdminController::class, 'updateUser'])->name('user.update')->middleware('is_admin');
 Route::get('/user/delete/{id}', [AdminController::class, 'deleteUser'])->name('user.delete')->middleware('is_admin');
+Route::get('/clients', [ClientController::class, 'index'])->name('clients')->middleware('is_operator');

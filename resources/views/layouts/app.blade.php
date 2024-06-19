@@ -33,6 +33,7 @@
                         <a class="nav-link" href="/objectsts">Объекты</a>
                         @if(auth()->user()->role_id == 1)
                             <a class="nav-link" href="/users" role="button">Пользователи</a>
+                            <a class="nav-link" href="/orders" role="button">Отчеты</a>
                         @endif
                     </div>
                 </div>
