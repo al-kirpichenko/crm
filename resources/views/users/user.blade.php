@@ -5,7 +5,7 @@
         @foreach($data as $user)
         <div class="card" style="width: 40rem;">
             <div class="card-body">
-                <h5 class="card-title">Создать пользователя</h5>
+                <h5 class="card-title">Информация о пользователе</h5>
                 <form name="userForm" action="{{ route('user.update') }}" method="POST">
                     @csrf
                     <div class="form-group">

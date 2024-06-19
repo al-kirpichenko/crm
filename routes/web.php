@@ -39,3 +39,5 @@ Route::get('/user/show/{id}', [AdminController::class, 'user'])->name('user')->m
 Route::post('/user/update', [AdminController::class, 'updateUser'])->name('user.update')->middleware('is_admin');
 Route::get('/user/delete/{id}', [AdminController::class, 'deleteUser'])->name('user.delete')->middleware('is_admin');
 Route::get('/clients', [ClientController::class, 'index'])->name('clients')->middleware('is_operator');
+Route::get('/client/show/{id}', [ClientController::class, 'client'])->name('client')->middleware('is_operator');
+Route::post('/client/update', [ClientController::class, 'update'])->name('client.update')->middleware('is_operator');
