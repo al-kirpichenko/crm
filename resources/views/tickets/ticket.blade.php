@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="description">Описание:</label>
                             <textarea class="form-control" rows="5"
-                                      name="description">{{$ticket['description']}}</textarea>
+                                      name="description" @if(auth()->user()->role_id === 3) readonly @endif>{{$ticket['description']}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="status_id">Статус</label>
@@ -41,6 +41,11 @@
                         </div>
                         <div class="form-group">
                             <label for="worker_id">Исполнитель:</label>
+                            @if(auth()->user()->role_id == 3)
+                                <select class="form-control" name="worker_id">
+                                    <option selected value="{{$ticket['worker_id']}}">{{$ticket['worker_name']}}</option>
+                                </select>
+                            @else
                             <select class="form-control" name="worker_id">
                                 <option selected value="{{$ticket['worker_id']}}">{{$ticket['worker_name']}}</option>
                                 @foreach($workers as $worker)
@@ -50,6 +55,7 @@
 
                                 @endforeach
                             </select>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="date_open">Дата открытия:</label>

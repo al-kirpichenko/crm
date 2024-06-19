@@ -26,17 +26,22 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключатель навигации">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @auth
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link" href="/tickets">Заявки</a>
-                        <a class="nav-link" href="/clients">Клиенты</a>
-                        <a class="nav-link" href="/objects">Объекты</a>
+                        @if(auth()->user()->role_id < 3)
+                            <a class="nav-link" href="/clients">Клиенты</a>
+                            <a class="nav-link" href="/objects">Объекты</a>
+                        @endif
                         @if(auth()->user()->role_id == 1)
                             <a class="nav-link" href="/users" role="button">Пользователи</a>
                             <a class="nav-link" href="/orders" role="button">Отчеты</a>
                         @endif
+
                     </div>
                 </div>
+                @endauth
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -55,11 +60,6 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
-                                </li>
-                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TicketController;
@@ -20,13 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [TicketController::class, 'index'])->name('home');
 Route::get ('/admin', [AdminController:: class , 'admin'])->name('admin')->middleware('is_admin');
 Route::get('/tickets', [TicketController::class, 'index'])->name('tickets');
 Route::get('/ticket/show/{id}', [TicketController::class, 'ticket'])->name('ticket');
